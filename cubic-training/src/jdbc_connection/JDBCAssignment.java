@@ -8,14 +8,24 @@ import java.util.Scanner;
 
 public class JDBCAssignment {
 	static Scanner input = new Scanner(System.in);
+	static JDBC JC = new JDBC();
+	static Connection con = null;
+	
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
 		while(true){
 		
-		System.out.print("1. Insert Data.\n2. View Data.\n3. Exit\nEnter your Choice: ");
+		System.out.print("1. Create Table\n2. Insert Data.\n3. View Data.\n4. Exit\nEnter your Choice: ");
 		switch(input.nextInt()){
 		case 1: {
+				input.nextLine();
+				System.out.print("Enter Create Table Command: ");
+				con = JC.getConnection();
+				String command = input.nextLine();
+				Create_Tables newtable = new Create_Tables(con, command);
+		}
+		case 2: {
 					do{
 						insertdata data = new insertdata();
 		
@@ -25,7 +35,7 @@ public class JDBCAssignment {
 					System.out.println("\nTable updated...\n");
 					break;
 		}
-		case 2: {
+		case 3: {
 					JDBC JC = new JDBC();
 					Connection con = null;
 					con = JC.getConnection();
@@ -62,7 +72,7 @@ public class JDBCAssignment {
 					break;
 					
 		}
-		case 3: System.exit(0);
+		case 4: System.exit(0);
 			
 		}
 		}	
