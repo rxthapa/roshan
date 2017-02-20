@@ -23,6 +23,7 @@ public class insertdata {
 		String Sname;
 		int icid; 
 		String Cname, Instructor;
+		
 		switch (choice){
 			case 1: {
 				System.out.print("Enter Student Name: ");
@@ -49,11 +50,6 @@ public class insertdata {
 		}
 
 		
-	}
-	
-	insertdata(int icid, String Cname, String Instructor) throws ClassNotFoundException, SQLException{
-
-		this.insert_Course(icid, Cname, Instructor);
 	}
 	
 	public void insert_Student(int sid, int scid, String Sname, int Score, String Grade) throws SQLException, ClassNotFoundException {
